@@ -1,0 +1,28 @@
+{
+  "name": "taller-servicios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lestercoyoyjr/mongodb_api2.git"
+  },
+  "author": "Lester Coyoy",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose" : "^6.3.2",
+    "body-parser": "^1.20.0"  
+  },
+  "devDependencies": {
+    "nodemon": "2.0.20"
+  },
+  "bugs": {
+    "url": "https://github.com/lestercoyoyjr/mongodb_api2/issues"
+  },
+  "homepage": "https://github.com/lestercoyoyjr/mongodb_api2#readme"
+}

@@ -14,8 +14,9 @@ mongoose.connect('mongodb+srv://<username>:<password>@cluster0.xalt6v5.mongodb.n
     ()=>{
         console.log('La conexion a la bd es correcta')
         // CREAR EL SERVIDOR
-        append.lister(port,()=>{
+        app.listen(port,()=>{
             console.log('El servidor http://localhost:3999 esta funcionando.')
         });
     }
-);
+)
+.catch(error => console.log(error));

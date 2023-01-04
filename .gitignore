@@ -127,4 +127,4 @@ dist
 .pnp.*
 
 #ignore package-lock.json
-/package-lock.json
+package-lock.json

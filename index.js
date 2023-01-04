@@ -1,22 +1,18 @@
-'use strict'
+const express = require("express")
+const mongoose = require("mongoose")
+require("dotenv").config();
 
-// REQUIRES
-var mongoose = require('mongoose');
+const DB = process.env.MONGODB_URI;  
+const Port = process.env.PORT || 3999;
 
-// PUERTO SERVIDOR
-var port = process.env.port || 3999;
-
-mongoose.Promise = global.Promise;
-
-mongoose.connect('mongodb+srv://<username>:<password>@cluster0.xalt6v5.mongodb.net/?retryWrites=true&w=majority',
-{useNewUrlParser: true})
-.then(
-    ()=>{
-        console.log('La conexion a la bd es correcta')
-        // CREAR EL SERVIDOR
-        app.listen(port,()=>{
-            console.log('El servidor http://localhost:3999 esta funcionando.')
-        });
-    }
-)
-.catch(error => console.log(error));
+mongoose
+  .connect(DB, {
+    usenewurlparser: true,
+    useunifiedtopology: true,
+  })
+  .then(() => {
+    console.log("Successfully connected ");
+  })
+  .catch((error) => {
+    console.log(`can not connect to database, ${error}`);
+  });

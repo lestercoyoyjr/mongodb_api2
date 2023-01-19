@@ -43,9 +43,39 @@ var controller = {
                 }
             }
         )
-    }
+    },
 
     // SAVE
+    save: function(req,res){
+        console.log("==============");
+        console.log("ENTRANDO A LA FUNCION SAVE");
+        console.log(req.body);
+        if(req.body.productID == "0"){
+            // ES NUEVO
+            db.collection("products").count.then(
+                countProducts => {
+                    var product = {}
+                    product.productID = countProducts +1;
+                    product.description = req.body.description; 
+                    product.price = req.body.price; 
+                    db.collection("products").insertOne(product, 
+                      (error, result) => {
+                        if (error){
+                            return res.status(404).send({
+                                message: "No se pudo registrar el producto"
+                            });
+                        } else {
+                            return res.status(200).send({
+                                status: "success",
+                                product: result
+                            });
+                        }
+                      }  
+                    );
+                }
+            )
+        }
+    }
 
 }
 

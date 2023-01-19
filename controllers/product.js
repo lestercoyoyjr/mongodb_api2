@@ -23,8 +23,27 @@ var controller = {
                 }
             }
         );
+    },
+
+    // FIND
+    find:function(req,res){
+        console.log("==============");
+        console.log("ENTRANDO A LA FUNCION FIND");
+        db.collection("productos").find({productID: parseInt(req.params.id)}).toArray(
+            (error, dataProducts) => {
+                if (error || !dataProducts){
+                    return res.status(400).send({
+                        message: "No se encontro el producto"
+                    });
+                } else {
+                    return res.status(200).send({
+                        status: "success",
+                        product: dataProducts[0]
+                    });
+                }
+            }
+        )
     }
-    // SEARCH
 
     // SAVE
 

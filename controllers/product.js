@@ -74,6 +74,28 @@ var controller = {
                     );
                 }
             )
+        } else {
+            console.log('ENTRANDO A EDITAR');
+            var product = {}
+            product.productID = parseInt(req.body.productID);
+            product.description = parseInt(req.body.description);
+            product.price = parseInt(req.body.price);
+            console.log(product);
+            db.collection("products").updateOne({productID: {$eq:parseInt(req.body.productID)}},
+                                                {$set: product},
+                                                (error, result) => {
+                                                    if (error){
+                                                        return res.status(404).send({
+                                                            message: "No se pudo editar el producto"
+                                                        });
+                                                    } else {
+                                                        return res.status(200).send({
+                                                            status: "success",
+                                                            product: result
+                                                        });
+                                                    }
+                                                  }           
+            ); 
         }
     }
 

@@ -8,6 +8,6 @@ var router = express.Router();
 // ROUTES FOR PRODUCTS
 router.get('/productos', ProductController.list);
 router.get('/productos/:id', ProductController.find);
-router.get('/productos/save', ProductController.save);
+router.post('/productos/save', ProductController.save);
 
 module.exports = router;

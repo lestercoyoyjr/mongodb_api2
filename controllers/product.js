@@ -52,7 +52,7 @@ var controller = {
         console.log(req.body);
         if(req.body.productID == "0"){
             // ES NUEVO
-            db.collection("products").count.then(
+            db.collection("products").count().then(
                 countProducts => {
                     var product = {}
                     product.productID = countProducts +1;

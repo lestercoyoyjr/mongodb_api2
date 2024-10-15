@@ -14,9 +14,9 @@
   "author": "Lester Coyoy",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.1",
+    "body-parser": "^1.20.3",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2",
+    "express": "^4.21.1",
     "mongoose": "^6.12.6"
   },
   "devDependencies": {
